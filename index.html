@@ -155,6 +155,7 @@
             y = e.pageY - offset.top;
             if (seed.hover(x, y)) {
                 hold = 0;
+		toggleMusic(); // 调用 toggleMusic 来控制音乐播放
                 canvas.unbind("click");
                 canvas.unbind("mousemove");
                 canvas.removeClass('hand');
