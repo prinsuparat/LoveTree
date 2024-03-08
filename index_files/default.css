@@ -10,10 +10,51 @@ a {color:#000;font-size:14px;}
 #clock .digit {font-size:64px;}
 #canvas{margin:0 auto;width:1100px;height:680px;}
 #error{margin:0 auto;text-align:center;margin-top:60px;display:none;}
-@media (max-width: 600px) {
-  .some-class {
-    /* 在屏幕宽度小于600像素时应用的样式 */
-  }
+/* 默认样式，适用于横屏 */
+@media screen and (orientation: landscape) {
+    /* 横屏时的样式 */
+    body {
+        /* 适应横屏的样式 */
+    }
+}
+
+/* 竖屏时的样式调整 */
+@media screen and (orientation: portrait) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .portrait-hide {
+        display: none; /* 在竖屏模式下隐藏的元素 */
+    }
+
+    .portrait-only {
+        display: block; /* 只在竖屏模式下显示的元素 */
+    }
+
+    /* 竖屏提示信息样式 */
+    .rotate-device {
+        display: none; /* 默认隐藏，仅在竖屏时显示 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        color: white;
+        z-index: 10000;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+
+/* 竖屏模式下显示提示 */
+@media screen and (orientation: portrait) {
+    .rotate-device { display: flex; }
 }
 .hand{cursor:pointer;}
 .say{margin-left:5px;}
