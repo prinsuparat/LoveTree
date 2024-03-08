@@ -26,13 +26,26 @@
 </head>
 <body>
 
-<!-- 修改播放按钮图片的大小 -->
-<img src="https://ajlovechina.github.io/loveBalloon/static/music.png" style="position: fixed;z-index: 10001;top:10px;right:10px;width:50px;height:50px;" onclick="let m = document.querySelector('.song-audio-autoplay'); if (m.paused ) {m.play(); this.className = 'rotateImages'} else {m.pause(); this.className = ''}">
+<!-- 调整后的播放按钮图片 -->
+<img src="https://ajlovechina.github.io/loveBalloon/static/music.png" style="position: fixed;z-index: 10001;top:10px;right:10px;width:100px;height:100px;" onclick="toggleMusic();">
 
 <!-- 移除隐藏样式并添加 autoplay 属性让其自动播放 -->
-<audio class="song-audio-autoplay" controls loop autoplay>
+<audio class="song-audio-autoplay" style="position: fixed;z-index: 10000;bottom:10px;right:10px;width:300px;height:30px;display:block;" controls loop autoplay>
     <source src="./index_files/music.mp3" type="audio/mp3"/>
 </audio>
+<script type="text/javascript">
+    function toggleMusic() {
+        var m = document.querySelector('.song-audio-autoplay');
+        var btn = document.querySelector('img[onclick="toggleMusic();"]');
+        if (m.paused) {
+            m.play();
+            btn.className = 'rotateImages';
+        } else {
+            m.pause();
+            btn.className = '';
+        }
+    }
+</script>	
 <style type="text/css">
     .rotateImages{
         -webkit-animation:myRotate 10s linear infinite;
